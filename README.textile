@@ -1,0 +1,49 @@
+h1. Easy src.sencha.io
+
+Converts img elements found within the markup to Responsive images passed through the src.sencha.io web service.
+
+h2. Current Version
+
+1.0 (12 October 2011)
+
+h2. Requirements
+
+None.
+
+h2. License
+
+Easy src.sencha.io is distributed under the liberal MIT License.
+
+h2. Usage
+
+If you want responsive images without the headaches, you can use this plugin to implement Sencha’s src.sencha.io image service.
+
+<pre>{exp:easy_src_sencha_io}
+	{body}
+{/exp:easy_src_sencha_io}</pre>
+
+when the plugin encounters
+
+<pre>&lt;img src="foo.png" alt=""/&gt;</pre>
+
+it will remake that as
+
+<pre>&lt;img src="http://src.sencha.io/x100/http://your.domain.com/path/to/foo.png" alt=""/&gt;</pre>
+
+Providing it with additional params allows you to customize the image size:
+
+<pre>{exp:easy_src_sencha_io max_width="50%"}
+	{body}
+{/exp:easy_src_sencha_io}</pre>
+
+will generate the appropriate URL:
+
+<pre>&lt;img src="http://src.sencha.io/x50/http://your.domain.com/path/to/foo.png" alt=""/&gt;</pre>
+
+For more options, see http://www.sencha.com/learn/how-to-use-src-sencha-io/. Note: I’ve decided not to implement height adjustment, so just use a width value.
+
+You can also turn off the default XHTML presentation (to drop the trailing slash) if you are an HTML5 fan:
+
+<pre>{exp:easy_src_sencha_io xhtml="n"}
+	{body}
+{/exp:easy_src_sencha_io}</pre>
